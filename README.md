@@ -1,2 +1,2 @@
 # spacex-pad-weather-gate
-Pad weather GO/NO-GO gate (portfolio illustrative)
+**Portfolio** — illustrative pad weather GO/NO-GO constraints. Not official range rules.
