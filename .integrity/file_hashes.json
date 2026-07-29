@@ -1,16 +1,13 @@
 {
-  "repo": "spacex-pad-weather-gate",
-  "algorithm": "sha256",
-  "file_count": 9,
+  "file_count": 8,
   "hashes": {
-    "README.md": "1b96205524750e515b0b5ab85535873b504bc230bd7d8a5ec96650a1cf6202ee",
-    "EASTER_EGGS.md": "0c4fc58a6163b54497fc8327ec77f4293330eea4ba636e30db202836bd450900",
     "AKOS.md": "eae48200ee1bf2ec3fe2f267668b1dd09bac66f3bd2e01420e5787413f247a07",
+    "EASTER_EGGS.md": "0c4fc58a6163b54497fc8327ec77f4293330eea4ba636e30db202836bd450900",
     "HELIX_STRAND.md": "e6693641bb218214a094bb5159771be2145a29b4c0be301199836460b4b68505",
-    "mastermind_sidecar.py": "da3ea5a696a50bdc6fc20afc5420e1a12156b06bfb62d167911f8758f68aa1c9",
+    "README.md": "dbb7a2837ae107d8e268e7191a99d942214b7d5c9820a2adb85078b90e5844c8",
     "SECURITY_AND_FLEET_OPS.md": "26141c0f07d95847d679de423ddb7bdee6f3e319d204383c89a58d6d3bb610c7",
-    "tests/test_weather_gate.py": "6f99b55ee5bd071e9e4a750a68d92c5b06637d02707751e5e9708244507de8fe",
-    ".github/workflows/ci.yml": "393542f8109cac2611d6ab41b8b062e6cc8be46894379568f15c0b7e2c1a639f",
-    "src/weather_gate.py": "9b33c2184133dbb0d5350b88fb52b2e95a64549c4c899c1e0e2b1d4255d34db8"
+    "mastermind_sidecar.py": "da3ea5a696a50bdc6fc20afc5420e1a12156b06bfb62d167911f8758f68aa1c9",
+    "src/weather_gate.py": "9b33c2184133dbb0d5350b88fb52b2e95a64549c4c899c1e0e2b1d4255d34db8",
+    "tests/test_weather_gate.py": "6f99b55ee5bd071e9e4a750a68d92c5b06637d02707751e5e9708244507de8fe"
   }
 }
