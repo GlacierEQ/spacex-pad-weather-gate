@@ -1,5 +1,5 @@
 {
-  "file_count": 8,
+  "file_count": 9,
   "hashes": {
     "AKOS.md": "eae48200ee1bf2ec3fe2f267668b1dd09bac66f3bd2e01420e5787413f247a07",
     "EASTER_EGGS.md": "0c4fc58a6163b54497fc8327ec77f4293330eea4ba636e30db202836bd450900",
@@ -7,6 +7,7 @@
     "README.md": "dbb7a2837ae107d8e268e7191a99d942214b7d5c9820a2adb85078b90e5844c8",
     "SECURITY_AND_FLEET_OPS.md": "26141c0f07d95847d679de423ddb7bdee6f3e319d204383c89a58d6d3bb610c7",
     "mastermind_sidecar.py": "da3ea5a696a50bdc6fc20afc5420e1a12156b06bfb62d167911f8758f68aa1c9",
+    "src/electric_field_monitor.go": "6d8c85a34b3e178206c9a39dd8fdb9bd66c42c4f9e313b1774ff23743896ff21",
     "src/weather_gate.py": "9b33c2184133dbb0d5350b88fb52b2e95a64549c4c899c1e0e2b1d4255d34db8",
     "tests/test_weather_gate.py": "6f99b55ee5bd071e9e4a750a68d92c5b06637d02707751e5e9708244507de8fe"
   }
