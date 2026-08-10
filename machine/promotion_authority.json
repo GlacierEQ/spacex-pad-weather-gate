@@ -1,0 +1,11 @@
+{
+  "schema": "glaciereq.promotion-authority-grant.v1",
+  "repository": "GlacierEQ/spacex-pad-weather-gate",
+  "source_sha": "a4da69fec8bde5fa1a39bdb6dfcc8220c573404c8fa8064acb740a9b8c0207e0",
+  "proof_receipt_digest": "51e66224d8e475b7b45afa3111133a947b8c3bf87e7a9e8d6e77268ba0558d6d",
+  "not_after": 1788927149.234226,
+  "mac": "87a33d4b1e74f4a1c967da41ed4d8d781dd16dbb3ae5b4f20f385e926053a499",
+  "issuer": "local_operator_promotion_authority",
+  "verified": true,
+  "secret_ref": "src/promotion_authority.py::LOCAL_OPERATOR_SECRET"
+}

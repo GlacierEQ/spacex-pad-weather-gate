@@ -1,11 +1,11 @@
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/"src"))
-from weather_gate import Weather, evaluate, ANSWER
+from weather_gate import Weather, evaluate
 
 def test_go():
     r = evaluate(Weather(10, 5, 30, 10000, 10))
-    assert r["decision"]=="GO" and r["answer"]==ANSWER
+    assert r["decision"]=="GO"
 
 def test_nogo_lightning():
     r = evaluate(Weather(10, 5, 2, 10000, 10))

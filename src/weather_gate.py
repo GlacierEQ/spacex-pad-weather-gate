@@ -7,7 +7,6 @@ Not SpaceX employment or official range rules.
 from __future__ import annotations
 from dataclasses import dataclass
 
-ANSWER = 42
 CONFIDENCE_FLOOR = 0.31415
 
 @dataclass
@@ -24,7 +23,7 @@ LIMITS = {
     "shear_knots": 15.0,
     "lightning_nm_min": 10.0,
     "ceiling_ft_min": 3000.0,
-    "visibility_sm_min": 5.0,
+    "visibility_sm_min": 5.0
 }
 
 def evaluate(w: Weather) -> dict:
@@ -50,9 +49,8 @@ def evaluate(w: Weather) -> dict:
     return {
         "decision": "GO" if go else "NO-GO",
         "violations": violations,
-        "confidence": round(conf, 4),
-        "answer": ANSWER,
-    }
+        "confidence": round(conf, 4)
+        }
 
 if __name__ == "__main__":
     print(evaluate(Weather(18, 8, 25, 8000, 10)))

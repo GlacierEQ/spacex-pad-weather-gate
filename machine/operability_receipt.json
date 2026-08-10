@@ -1,0 +1,32 @@
+{
+  "schema": "glaciereq.operability-receipt.v1",
+  "repository": "GlacierEQ/spacex-pad-weather-gate",
+  "at": "2026-08-10T04:12Z",
+  "source_sha": "a4da69fec8bde5fa1a39bdb6dfcc8220c573404c8fa8064acb740a9b8c0207e0",
+  "entry": "scripts/operate.py",
+  "primary_output": {
+    "module": "weather_gate",
+    "ok": true,
+    "repository": "GlacierEQ/spacex-pad-weather-gate",
+    "smoke": {
+      "args": [
+        "Weather(wind_knots=1.0, shear_knots=1.0,"
+      ],
+      "content_checked": true,
+      "invoked": true,
+      "kind": "fn",
+      "name": "evaluate",
+      "result": {
+        "confidence": 0.3141,
+        "decision": "NO-GO",
+        "violations": [
+          "lightning",
+          "ceiling",
+          "visibility"
+        ]
+      }
+    }
+  },
+  "dual_run_ok": true,
+  "result": "PASS"
+}
