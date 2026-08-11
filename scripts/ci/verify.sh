@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+python -m pip install --disable-pip-version-check --quiet 'pytest==9.1.1'
+python -m compileall -q src tests scripts mastermind_sidecar.py
+python -m pytest -q tests
+python scripts/operate.py
+python scripts/verify_public_surface.py
+
+test -z "$(gofmt -l src/electric_field_monitor.go src/electric_field_monitor_test.go)"
+go vet ./...
+go test ./...
