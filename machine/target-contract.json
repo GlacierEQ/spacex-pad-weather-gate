@@ -5,18 +5,36 @@
     "family": "elite-estate"
   },
   "current": {
-    "state": "PROMOTED",
+    "state": "TESTED",
     "implemented": true,
     "tested": true,
     "deployed": false
   },
+  "verified_capability": "deterministic-local-environmental-constraint-evaluation",
+  "evidence_token": "LOCAL_ENVIRONMENTAL_RULE_GATE_NOT_LAUNCH_SAFETY_AUTHORITY",
+  "admitted_paths": [
+    "src/weather_gate.py",
+    "src/electric_field_monitor.go",
+    "tests/test_weather_gate.py",
+    "src/electric_field_monitor_test.go",
+    "tests/test_public_truth.py",
+    "scripts/verify_public_surface.py"
+  ],
   "nonclaims": [
-    "no employer affiliation",
-    "no production deployment without receipt"
+    "no SpaceX affiliation or proprietary access",
+    "no official Launch Commit Criteria or range-safety rules",
+    "no real pad sensors, field mills, lightning networks, radar, weather stations, or telemetry",
+    "no real-time external sensor polling or safety-critical availability",
+    "no ensemble weather-model fusion, probabilistic forecasting, or launch-window optimization",
+    "no live MCP, provider, APEX, AKOS, Mastermind, or agent-mesh integration",
+    "no launch GO/NO-GO authority, production deployment, certification, or safety suitability"
   ],
   "donor_plan": {
-    "mode": "none",
-    "donors": []
-  },
-  "frozen_at": "2026-08-10T04:12Z"
+    "mode": "bounded-capability-donor",
+    "donors": [
+      "deterministic-environmental-rule-evaluation",
+      "validated-synthetic-observation-ingest",
+      "in-memory-threshold-monitoring"
+    ]
+  }
 }

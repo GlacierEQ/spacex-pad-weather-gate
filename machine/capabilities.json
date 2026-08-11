@@ -1,1 +1,12 @@
-{"capabilities": ["hyper-scaling"]}
+{
+  "schema": "glaciereq.repository-capabilities.v1",
+  "evidence_token": "LOCAL_ENVIRONMENTAL_RULE_GATE_NOT_LAUNCH_SAFETY_AUTHORITY",
+  "capabilities": [
+    "deterministic-environmental-rule-evaluation",
+    "validated-synthetic-observation-ingest",
+    "bounded-margin-scoring",
+    "in-memory-electric-field-aggregation",
+    "illustrative-threshold-gating",
+    "local-python-go-verification"
+  ]
+}

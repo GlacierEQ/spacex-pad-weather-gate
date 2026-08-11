@@ -1,96 +1,142 @@
-// Package weather implements real-time electric field mill sensor monitoring
-// and Launch Commit Criteria (LCC) rule evaluation for pad weather gating.
+// Package weather implements repository-local environmental constraint helpers.
+// It does not implement SpaceX Launch Commit Criteria, range-safety rules, or
+// real pad-sensor acquisition.
 package weather
 
 import (
-	"fmt"
+	"errors"
 	"math"
 	"sync"
 	"time"
 )
 
-// FieldMillSensor represents an electric field sensor reading at the pad
-type FieldMillSensor struct {
+const EvidenceState = "LOCAL_ENVIRONMENTAL_RULE_GATE_NOT_LAUNCH_SAFETY_AUTHORITY"
+
+// FieldReading is one caller-supplied synthetic electric-field observation.
+type FieldReading struct {
 	SensorID     string
 	LocationName string
-	FieldKVPerM  float64   // Electric field strength (kV/m)
+	FieldKVPerM  float64
 	Timestamp    time.Time
 }
 
-// LCCWeatherState represents the complete pad weather state
-type LCCWeatherState struct {
-	MaxSurfaceWindKts   float64
-	UpperWindKts        float64
-	ElectricFieldKVPerM float64
-	LightningStrikes10M int
-	CloudCeilingFt      float64
-	TemperatureF        float64
-	PrecipitationAtPad  bool
+// EnvironmentalState is a caller-supplied synthetic state for illustrative
+// rule evaluation. Its thresholds are portfolio fixtures, not official limits.
+type EnvironmentalState struct {
+	SurfaceWindKts    float64
+	UpperWindKts      float64
+	ElectricFieldKVm  float64
+	NearbyStrikeCount int
+	CloudCeilingFt    float64
+	TemperatureF      float64
+	Precipitation     bool
 }
 
-// ElectricFieldMonitor tracks electric field strength across sensors
+// ElectricFieldMonitor aggregates in-memory caller-supplied readings.
 type ElectricFieldMonitor struct {
 	mu          sync.RWMutex
-	sensors     map[string]*FieldMillSensor
+	sensors     map[string]FieldReading
 	thresholdKV float64
 }
 
-func NewElectricFieldMonitor(thresholdKV float64) *ElectricFieldMonitor {
-	return &ElectricFieldMonitor{
-		sensors:     make(map[string]*FieldMillSensor),
-		thresholdKV: thresholdKV,
-	}
+func finite(value float64) bool {
+	return !math.IsNaN(value) && !math.IsInf(value, 0)
 }
 
-func (m *ElectricFieldMonitor) UpdateSensor(id string, location string, fieldKV float64) {
+// NewElectricFieldMonitor creates a local threshold monitor.
+func NewElectricFieldMonitor(thresholdKV float64) (*ElectricFieldMonitor, error) {
+	if !finite(thresholdKV) || thresholdKV <= 0 {
+		return nil, errors.New("threshold must be finite and positive")
+	}
+	return &ElectricFieldMonitor{
+		sensors:     make(map[string]FieldReading),
+		thresholdKV: thresholdKV,
+	}, nil
+}
+
+// UpdateSensor stores a synthetic reading. It performs no external polling.
+func (m *ElectricFieldMonitor) UpdateSensor(id string, location string, fieldKV float64) error {
+	if id == "" {
+		return errors.New("sensor id required")
+	}
+	if !finite(fieldKV) {
+		return errors.New("field value must be finite")
+	}
 	m.mu.Lock()
 	defer m.mu.Unlock()
-	m.sensors[id] = &FieldMillSensor{
+	m.sensors[id] = FieldReading{
 		SensorID:     id,
 		LocationName: location,
 		FieldKVPerM:  fieldKV,
 		Timestamp:    time.Now(),
 	}
+	return nil
 }
 
+// MaxElectricField returns the maximum absolute value among stored readings.
 func (m *ElectricFieldMonitor) MaxElectricField() float64 {
 	m.mu.RLock()
 	defer m.mu.RUnlock()
 	maxField := 0.0
-	for _, s := range m.sensors {
-		if math.Abs(s.FieldKVPerM) > maxField {
-			maxField = math.Abs(s.FieldKVPerM)
+	for _, sensor := range m.sensors {
+		if magnitude := math.Abs(sensor.FieldKVPerM); magnitude > maxField {
+			maxField = magnitude
 		}
 	}
 	return maxField
 }
 
-func (m *ElectricFieldMonitor) IsTriggeredLightningRisk() bool {
+// IsThresholdExceeded compares local in-memory readings to the configured
+// illustrative threshold.
+func (m *ElectricFieldMonitor) IsThresholdExceeded() bool {
 	return m.MaxElectricField() >= m.thresholdKV
 }
 
-// EvaluateLCC returns (IsGo, RuleViolations)
-func EvaluateLCC(state LCCWeatherState) (bool, []string) {
-	var violations []string
+func validateState(state EnvironmentalState) error {
+	values := []float64{
+		state.SurfaceWindKts,
+		state.UpperWindKts,
+		state.ElectricFieldKVm,
+		state.CloudCeilingFt,
+		state.TemperatureF,
+	}
+	for _, value := range values {
+		if !finite(value) {
+			return errors.New("environmental values must be finite")
+		}
+	}
+	if state.SurfaceWindKts < 0 || state.UpperWindKts < 0 || state.CloudCeilingFt < 0 {
+		return errors.New("wind and ceiling values must be non-negative")
+	}
+	if state.NearbyStrikeCount < 0 {
+		return errors.New("strike count must be non-negative")
+	}
+	return nil
+}
 
-	if state.MaxSurfaceWindKts > 30.0 {
-		violations = append(violations, fmt.Sprintf("Surface wind (%.1f kts > 30 kts)", state.MaxSurfaceWindKts))
+// EvaluateConstraints applies illustrative local fixture thresholds.
+func EvaluateConstraints(state EnvironmentalState) (bool, []string, error) {
+	if err := validateState(state); err != nil {
+		return false, nil, err
+	}
+	violations := make([]string, 0)
+	if state.SurfaceWindKts > 30.0 {
+		violations = append(violations, "surface_wind")
 	}
 	if state.UpperWindKts > 140.0 {
-		violations = append(violations, fmt.Sprintf("Upper wind shear (%.1f kts > 140 kts)", state.UpperWindKts))
+		violations = append(violations, "upper_wind")
 	}
-	if state.ElectricFieldKVPerM >= 1.5 {
-		violations = append(violations, fmt.Sprintf("Electric field strength (%.2f kV/m >= 1.5 kV/m)", state.ElectricFieldKVPerM))
+	if math.Abs(state.ElectricFieldKVm) >= 1.5 {
+		violations = append(violations, "electric_field")
 	}
-	if state.LightningStrikes10M > 0 {
-		violations = append(violations, fmt.Sprintf("Lightning within 10 nmi (%d strikes)", state.LightningStrikes10M))
+	if state.NearbyStrikeCount > 0 {
+		violations = append(violations, "nearby_strike")
 	}
 	if state.TemperatureF < 40.0 {
-		violations = append(violations, fmt.Sprintf("Pad temperature (%.1f°F < 40°F)", state.TemperatureF))
+		violations = append(violations, "temperature")
 	}
-	if state.PrecipitationAtPad {
-		violations = append(violations, "Precipitation detected at launch pad")
+	if state.Precipitation {
+		violations = append(violations, "precipitation")
 	}
-
-	return len(violations) == 0, violations
+	return len(violations) == 0, violations, nil
 }
