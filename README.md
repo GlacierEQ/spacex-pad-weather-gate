@@ -1,66 +1,54 @@
-# SpaceX Pad Weather Gate — Launch Commit Criteria Meteorological Engine ⛈️
+# Environmental Constraint Gate
 
-> **Automated weather assessment against Launch Commit Criteria (LCC) with go/no-go meteorological gating.**
+> **Deterministic local rule evaluation for synthetic weather observations and in-memory electric-field measurements.**
 
-[![Python](https://img.shields.io/badge/Python-3.9+-blue)]()
-[![Go](https://img.shields.io/badge/Go-1.21+-00ADD8)]()
-[![Domain](https://img.shields.io/badge/Domain-Launch%20Weather-red)]()
+This is an independent GlacierEQ portfolio repository. It is **not affiliated with, endorsed by, or connected to SpaceX** and has no access to proprietary SpaceX, range-safety, launch-weather, pad-sensor, or mission-control systems.
 
----
+Evidence state: `LOCAL_ENVIRONMENTAL_RULE_GATE_NOT_LAUNCH_SAFETY_AUTHORITY`
 
-## 🎯 For Recruiters & Hiring Managers
+## Verified repository-owned scope
 
-This repository implements a **weather gate decision engine** — the system that evaluates real-time meteorological data against formal Launch Commit Criteria to determine if conditions are safe for launch. It demonstrates:
+The admitted surface is intentionally narrower than a real launch-weather system:
 
-- **Rule engine** evaluating 11+ weather criteria simultaneously (wind, lightning, cloud ceiling, precipitation, etc.)
-- **Triggered Lightning Rule**: Range safety constraint preventing launch through charged clouds
-- **Probabilistic forecasting** with ensemble weather model integration
-- **Time-window optimization** finding the best launch opportunity within a window
+- a five-rule Python evaluator for wind, shear, lightning distance, cloud ceiling, and visibility;
+- finite/non-negative observation validation that fails closed on malformed inputs;
+- deterministic violation ordering and a bounded **margin score** that is not a probability or forecast confidence;
+- an in-memory Go electric-field sensor registry using caller-supplied synthetic readings;
+- maximum absolute field aggregation and a configurable local threshold check;
+- a separate illustrative Go constraint evaluator for caller-supplied values;
+- repository-owned Python and Go tests plus cold-start local operability.
 
-**Why this matters**: Weather gating is a **real-time decision engine with formal safety constraints** — identical in structure to compliance engines, risk management platforms, and automated trading circuit breakers.
+The numeric thresholds in this repository are **illustrative portfolio fixtures**, not official Launch Commit Criteria, range rules, safety limits, or vehicle-specific constraints.
 
----
+## Core implementation
 
-## 🔬 For Engineers & Technical Reviewers
+| Path | Verified role |
+|---|---|
+| `src/weather_gate.py` | Validated synthetic observation rule engine |
+| `src/electric_field_monitor.go` | In-memory field-reading aggregation and illustrative constraint evaluation |
+| `tests/test_weather_gate.py` | Python rule/validation tests |
+| `src/electric_field_monitor_test.go` | Go sensor/constraint tests |
+| `tests/test_public_truth.py` | Public and machine truth-boundary tests |
+| `scripts/verify_public_surface.py` | Fail-closed claim verifier |
 
-### Launch Commit Criteria (LCC)
+## Evidence boundary
 
-| Rule | Threshold | Constraint |
-|---|---|---|
-| Surface winds | ≤30 kt sustained | Structural loads |
-| Upper-level winds | ≤140 kt | Max-Q shear |
-| Lightning (0-10 nmi) | 0 strikes / 30 min | Triggered lightning |
-| Cumulus cloud | No Cb within 10 nmi | Field mill criteria |
-| Temperature | ≥40°F | O-ring / seal integrity |
-| Precipitation | None at pad | Ice formation |
-| Visibility | ≥4 statute miles | Range tracking |
+This repository does **not** claim:
 
-### Core Components
+- SpaceX affiliation, endorsement, employment, or proprietary access;
+- official Launch Commit Criteria or range-safety rules;
+- real pad sensors, field mills, lightning networks, radar, weather stations, or telemetry;
+- real-time data acquisition, concurrent external sensor polling, or safety-critical availability;
+- ensemble numerical-weather-prediction fusion, probabilistic forecasting, or launch-window optimization;
+- live MCP, provider, APEX, AKOS, Mastermind, or agent-mesh runtime integration;
+- production launch GO/NO-GO authority, certification, deployment, or operational safety suitability.
 
-| Component | Language | Purpose |
-|---|---|---|
-| `src/weather_gate.py` | Python | LCC rule engine, criteria evaluation, window optimization |
-| `src/field_mill.go` | Go | Real-time electric field monitoring with concurrent sensor polling |
-| `tests/` | Python | Historical weather scenario replay for rule validation |
+Any future claim above this ceiling requires new source, deterministic tests, exact-head receipts, and a new governance admission.
 
----
-
-## 🤖 ML/AI & Programmatic Mesh Integration
-
-- **MCP Tool**: `weather_check()` — LCC status queryable by launch sequencer agents
-- **Mastermind Sidecar**: Publishes weather violations to APEX Highway mesh
-- **AI Extension**: Ensemble NWP model fusion for probabilistic launch window prediction
-
-```python
-gate = await mcp_client.call_tool("pad-weather-gate", "evaluate_lcc")
-# Returns: {"status": "GO", "violations": [], "confidence": 0.92, "window_minutes": 120}
-```
-
----
-
-## ⚡ Quick Start
+## Reproduce the admitted surface
 
 ```bash
-python3 src/weather_gate.py
-python3 tests/test_weather_gate.py
+bash scripts/ci/verify.sh
 ```
+
+The gate compiles and tests the Python surface, tests/vets the Go surface, runs the local operability probe, and verifies the public/machine truth boundary.
