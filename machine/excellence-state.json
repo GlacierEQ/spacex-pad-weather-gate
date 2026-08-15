@@ -1,10 +1,29 @@
 {
-  "schema": "glaciereq.repo-excellence-state.v1",
+  "schema": "glaciereq.repo-excellence-state.v2",
   "repository": "GlacierEQ/spacex-pad-weather-gate",
-  "principal_state": "TESTED",
-  "state": "TESTED",
+  "principal_state": "FUNCTIONAL_LOCAL_ENVIRONMENTAL_RULE_ENGINE",
+  "product_state": "FUNCTIONAL_LOCAL_ENVIRONMENTAL_RULE_ENGINE",
+  "evidence_state": "EXACT_HEAD_VERIFIED",
+  "projection_state": "LOCAL_ENVIRONMENTAL_RULE_GATE_NOT_LAUNCH_SAFETY_AUTHORITY",
+  "target_state": "PRESERVED_UNVERIFIED_TARGET_ARCHITECTURE",
+  "state_planes_ref": "machine/capability-planes.json",
   "verified_capability": "deterministic-local-environmental-constraint-evaluation",
   "evidence_token": "LOCAL_ENVIRONMENTAL_RULE_GATE_NOT_LAUNCH_SAFETY_AUTHORITY",
+  "evidence_checkpoint": {
+    "head_sha": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
+    "workflow_receipts": [
+      {
+        "name": "CI",
+        "id": 31536566364,
+        "conclusion": "success"
+      },
+      {
+        "name": "Public Environmental Rule Truth Gate",
+        "id": 31536566296,
+        "conclusion": "success"
+      }
+    ]
+  },
   "gates": {
     "IDENTITY_RESOLVED": {
       "status": "PASS",
@@ -12,57 +31,58 @@
     },
     "TARGET_CONTRACT_FROZEN": {
       "status": "PASS",
-      "evidence": "machine/target-contract.json"
+      "evidence": "machine/target-contract.json preserves target architecture separately from current proof"
     },
     "CENTRAL_MECHANISM_PRESENT": {
       "status": "PASS",
       "evidence": "src/weather_gate.py and src/electric_field_monitor.go"
     },
     "DETERMINISTIC_PROOF_GREEN": {
-      "status": "PENDING",
-      "evidence": "requires current exact-head Public Environmental Rule Truth Gate"
+      "status": "PASS",
+      "evidence": "CI 31536566364 and Public Environmental Rule Truth Gate 31536566296 on exact head 7f8ca0a9d4e346b7350b30e2a9263a10b3baae26"
     },
     "ADVERSARIAL_SURVIVAL": {
-      "status": "PENDING",
-      "evidence": "current exact-head malformed-observation and threshold proof required"
+      "status": "PASS",
+      "evidence": "exact-head malformed-observation threshold and public-boundary tests"
     },
     "OPERABLE_AND_OBSERVABLE": {
-      "status": "PENDING",
-      "evidence": "scripts/operate.py preserved; current exact-head gate required"
+      "status": "PASS",
+      "evidence": "repository-owned Python and Go verification executes the local rule surfaces"
     },
     "PROOF_RECEIPT_BOUND": {
-      "status": "PENDING",
-      "evidence": "historical local proof receipt is not promoted as current GitHub canonical proof"
+      "status": "PASS",
+      "evidence": "current exact-head GitHub workflow receipts are bound to the evidence plane"
     },
     "AUTHORITY_BOUND": {
-      "status": "PENDING",
-      "evidence": "local evaluation authority is not launch-safety or range authority"
+      "status": "PASS",
+      "evidence": "authority is explicitly local synthetic environmental evaluation, not launch-safety or range authority"
     },
     "PROJECTION_TRUTH_CLOSED": {
-      "status": "PENDING",
-      "evidence": "README and machine surfaces truth-hardened; exact-head gate required"
+      "status": "PASS",
+      "evidence": "Public Environmental Rule Truth Gate 31536566296"
     },
     "CANONICAL_POSITION_RESOLVED": {
-      "status": "PENDING"
+      "status": "PENDING",
+      "evidence": "estate-level canonical position remains separately governed"
     },
     "EVOLUTION_CURSOR_DEFINED": {
       "status": "PASS",
-      "evidence": "next: exact-head environmental-rule truth gate then Helix surface admission"
+      "evidence": "advance preserved target architecture through implementation and proof without replacing the verified checkpoint"
     }
   },
   "nonclaims": [
     "no SpaceX affiliation or proprietary launch-weather access",
     "no official Launch Commit Criteria or range-safety rule implementation",
     "no real pad sensor or weather-network acquisition",
-    "no ensemble forecasting or launch-window optimization",
+    "no validated ensemble forecasting or operating-window optimization",
     "no live MCP, provider, APEX, AKOS, Mastermind, or agent-mesh runtime integration",
     "no production launch authority, deployment, certification, or safety suitability"
   ],
   "contract_ref": "machine/target-contract.json",
   "scores_ref": "machine/excellence-scores.json",
-  "evolution_cursor": "next:exact-head-public-environmental-rule-truth-gate_then_helix_admission",
+  "evolution_cursor": "next:advance_preserved_environmental_target_architecture_without_projection_contamination",
   "supersedes": {
-    "generic_migration_state": "PROMOTED",
-    "reason": "generic estate migration state contained placeholder proof identity and exceeded current repository-native claim scope"
+    "single_axis_principal_state": "TESTED",
+    "reason": "TESTED represented an evidence/projection checkpoint and incorrectly replaced product maturity and target state"
   }
 }
