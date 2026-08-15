@@ -1,40 +1,45 @@
 {
-  "schema": "glaciereq.repo-target-contract.v1",
+  "schema": "glaciereq.repo-target-contract.v2",
   "identity": {
     "repository_id": "GlacierEQ/spacex-pad-weather-gate",
-    "family": "elite-estate"
+    "canonical_identity": "environmental-constraint decision-engineering laboratory",
+    "non_affiliation": "independent GlacierEQ portfolio system; no SpaceX affiliation, proprietary access, range authority, or launch-safety authority"
   },
-  "current": {
-    "state": "TESTED",
+  "authority": {
+    "projection_non_interference": "GlacierEQ/AKOS@09660d20fe1cfe03de169ce327cbe0e86f054e63/governance/projection_non_interference.v1.json",
+    "capability_planes": "machine/capability-planes.json",
+    "rule": "the target contract preserves future architecture; current evidence constrains public projection without replacing the target"
+  },
+  "implementation_checkpoint": {
+    "state": "FUNCTIONAL_LOCAL_ENVIRONMENTAL_RULE_ENGINE",
     "implemented": true,
     "tested": true,
     "deployed": false
   },
-  "verified_capability": "deterministic-local-environmental-constraint-evaluation",
-  "evidence_token": "LOCAL_ENVIRONMENTAL_RULE_GATE_NOT_LAUNCH_SAFETY_AUTHORITY",
-  "admitted_paths": [
-    "src/weather_gate.py",
-    "src/electric_field_monitor.go",
-    "tests/test_weather_gate.py",
-    "src/electric_field_monitor_test.go",
-    "tests/test_public_truth.py",
-    "scripts/verify_public_surface.py"
-  ],
+  "evidence_checkpoint": {
+    "verified_capability": "deterministic-local-environmental-constraint-evaluation",
+    "evidence_token": "LOCAL_ENVIRONMENTAL_RULE_GATE_NOT_LAUNCH_SAFETY_AUTHORITY",
+    "canonical_proof_head": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
+    "claim_ceiling_applies_to": "projection"
+  },
+  "target_architecture": {
+    "status": "PRESERVED_UNVERIFIED_TARGET_ARCHITECTURE",
+    "source": "machine/capability-planes.json#target",
+    "objectives": [
+      "expand the deterministic evaluator into a larger composable environmental-rule engine",
+      "develop generic electrical-field and triggered-lightning-style constraint research without representing official range rules",
+      "evaluate probabilistic environmental forecasting and ensemble-model fusion against reproducible public or synthetic datasets",
+      "build generic time-window optimization for favorable operating conditions",
+      "expose a governed programmatic environmental-status query service",
+      "publish bounded environmental events into a governed orchestration or agent mesh"
+    ],
+    "promotion_rule": "each target remains target state until implementation and evidence exist; missing proof may narrow projection but may not erase the target"
+  },
   "nonclaims": [
-    "no SpaceX affiliation or proprietary access",
-    "no official Launch Commit Criteria or range-safety rules",
-    "no real pad sensors, field mills, lightning networks, radar, weather stations, or telemetry",
-    "no real-time external sensor polling or safety-critical availability",
-    "no ensemble weather-model fusion, probabilistic forecasting, or launch-window optimization",
-    "no live MCP, provider, APEX, AKOS, Mastermind, or agent-mesh integration",
-    "no launch GO/NO-GO authority, production deployment, certification, or safety suitability"
-  ],
-  "donor_plan": {
-    "mode": "bounded-capability-donor",
-    "donors": [
-      "deterministic-environmental-rule-evaluation",
-      "validated-synthetic-observation-ingest",
-      "in-memory-threshold-monitoring"
-    ]
-  }
+    "no official Launch Commit Criteria or range-safety rule implementation",
+    "no real pad sensor or weather-network acquisition",
+    "no validated ensemble forecast or operating-window optimization",
+    "no live MCP, provider, APEX, AKOS, Mastermind, or agent-mesh runtime integration",
+    "no production launch authority, deployment, certification, or safety suitability"
+  ]
 }
