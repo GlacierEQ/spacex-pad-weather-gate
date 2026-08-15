@@ -1,0 +1,126 @@
+{
+  "schema": "glaciereq.repository-capability-planes.v1",
+  "repository": "GlacierEQ/spacex-pad-weather-gate",
+  "governance_authority": {
+    "repository": "GlacierEQ/AKOS",
+    "canonical_commit": "09660d20fe1cfe03de169ce327cbe0e86f054e63",
+    "contract": "governance/projection_non_interference.v1.json"
+  },
+  "provenance": {
+    "pre_truth_hardening_head": "e61a8c730ff79250151bd3d233ba819f71d944a4",
+    "truth_hardening_head": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
+    "current_parent_head": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
+    "historical_intent_source": "README.md@e61a8c730ff79250151bd3d233ba819f71d944a4",
+    "rule": "historical intent is provenance or target state only; unsupported operational detail is not promoted to current implementation or evidence"
+  },
+  "canonical": {
+    "identity": "environmental-constraint decision-engineering laboratory for deterministic rules, synthetic sensor aggregation, forecasting research, and operating-window analysis",
+    "original_intent": [
+      "multi-rule environmental decision evaluation",
+      "lightning and electric-field constraint modeling",
+      "probabilistic forecasting and ensemble-model research",
+      "operating-window optimization",
+      "programmatic environmental-status queries",
+      "event publication into a governed orchestration plane"
+    ],
+    "non_affiliation": "independent GlacierEQ portfolio system; no SpaceX affiliation, endorsement, proprietary access, range authority, or launch-safety authority"
+  },
+  "implementation": {
+    "status": "FUNCTIONAL_LOCAL_ENVIRONMENTAL_RULE_ENGINE",
+    "implemented_capabilities": [
+      "deterministic-environmental-rule-evaluation",
+      "validated-synthetic-observation-ingest",
+      "bounded-margin-scoring",
+      "in-memory-electric-field-aggregation",
+      "illustrative-threshold-gating",
+      "local-python-go-verification"
+    ],
+    "experimental_or_partial": [
+      "broader environmental rule composition beyond the current five-rule Python fixture",
+      "electric-field and triggered-lightning style research as generic environmental constraints",
+      "programmatic orchestration surfaces beyond current local execution"
+    ],
+    "source_paths": [
+      "src/weather_gate.py",
+      "src/electric_field_monitor.go"
+    ]
+  },
+  "evidence": {
+    "evidence_token": "LOCAL_ENVIRONMENTAL_RULE_GATE_NOT_LAUNCH_SAFETY_AUTHORITY",
+    "verified_capability": "deterministic-local-environmental-constraint-evaluation",
+    "canonical_proof_head": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
+    "proof_receipts": [
+      {
+        "kind": "github_actions",
+        "name": "CI",
+        "id": 31536566364,
+        "head_sha": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
+        "conclusion": "success"
+      },
+      {
+        "kind": "github_actions",
+        "name": "Public Environmental Rule Truth Gate",
+        "id": 31536566296,
+        "head_sha": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
+        "conclusion": "success"
+      }
+    ],
+    "rule": "evidence defines currently defensible claims; it does not replace canonical identity or future target architecture"
+  },
+  "projection": {
+    "public_claim_ceiling": "deterministic local environmental-rule evaluation for synthetic weather observations and in-memory electric-field measurements",
+    "public_readme": "README.md",
+    "projection_may_omit_unverified_target_state": true,
+    "projection_may_overwrite_canonical_or_target": false,
+    "nonclaims": [
+      "no official Launch Commit Criteria or range-safety rules",
+      "no real pad sensors, field mills, lightning networks, radar, weather stations, or telemetry",
+      "no real-time external sensor acquisition or safety-critical availability",
+      "no validated ensemble weather forecast or operating-window optimizer",
+      "no live MCP, provider, APEX, AKOS, Mastermind, or agent-mesh runtime integration",
+      "no production launch GO/NO-GO authority, certification, deployment, or operational safety suitability"
+    ]
+  },
+  "target": {
+    "status": "PRESERVED_UNVERIFIED_TARGET_ARCHITECTURE",
+    "items": [
+      {
+        "capability": "larger multi-rule environmental decision engine",
+        "origin": "historical README",
+        "state": "PARTIALLY_IMPLEMENTED_TARGET",
+        "note": "current five-rule evaluator is an implemented base; broader rule composition remains a target"
+      },
+      {
+        "capability": "triggered-lightning-style environmental constraint architecture",
+        "origin": "historical README",
+        "state": "PARTIALLY_IMPLEMENTED_TARGET",
+        "note": "preserved only as generic electrical/environmental constraint research, not official range-safety logic"
+      },
+      {
+        "capability": "probabilistic environmental forecasting with ensemble-model integration",
+        "origin": "historical README",
+        "state": "UNVERIFIED_TARGET",
+        "note": "future research target; no current forecast-probability claim"
+      },
+      {
+        "capability": "time-window optimization for favorable operating conditions",
+        "origin": "historical README",
+        "state": "UNVERIFIED_TARGET",
+        "note": "generic operating-window optimization target; no current launch-window capability claim"
+      },
+      {
+        "capability": "programmatic environmental-status query service",
+        "origin": "historical README",
+        "state": "UNVERIFIED_TARGET",
+        "note": "preserves the former MCP query ambition as a generic governed service target"
+      },
+      {
+        "capability": "environmental-event publication into a governed orchestration mesh",
+        "origin": "historical README",
+        "state": "UNVERIFIED_TARGET",
+        "note": "preserves former sidecar/mesh intent without claiming current live integration"
+      }
+    ],
+    "rule": "target items may advance only through implementation and new evidence; failure to prove them today cannot delete them"
+  }
+}
