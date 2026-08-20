@@ -30,6 +30,11 @@ The numeric thresholds in this repository are **illustrative portfolio fixtures*
 | `src/electric_field_monitor_test.go` | Go sensor/constraint tests |
 | `tests/test_public_truth.py` | Public and machine truth-boundary tests |
 | `scripts/verify_public_surface.py` | Fail-closed claim verifier |
+| `machine/capability-planes.json` | APEX capability selections, challengers, donors, target frontier, evidence, and lineage |
+
+## APEX evolution
+
+The deterministic rule engine and Go electric-field mechanism are current capability providers, not permanent winners. Broader rule composition, probabilistic forecasting, operating-window optimization, programmatic service, and event-publication work remain explicit challengers or frontier capabilities and can advance when implementation and evidence become stronger.
 
 ## Evidence boundary
 
@@ -43,7 +48,7 @@ This repository does **not** claim:
 - live MCP, provider, APEX, AKOS, Mastermind, or agent-mesh runtime integration;
 - production launch GO/NO-GO authority, certification, deployment, or operational safety suitability.
 
-Any future claim above this ceiling requires new source, deterministic tests, exact-head receipts, and a new governance admission.
+Any future claim above this ceiling requires new source, deterministic tests, exact-head receipts, and successful APEX capability-graph re-evaluation for the relevant capability.
 
 ## Reproduce the admitted surface
 
