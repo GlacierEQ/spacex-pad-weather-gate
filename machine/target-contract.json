@@ -1,14 +1,13 @@
 {
-  "schema": "glaciereq.repo-target-contract.v2",
-  "identity": {
-    "repository_id": "GlacierEQ/spacex-pad-weather-gate",
-    "canonical_identity": "environmental-constraint decision-engineering laboratory",
-    "non_affiliation": "independent GlacierEQ portfolio system; no SpaceX affiliation, proprietary access, range authority, or launch-safety authority"
-  },
-  "authority": {
-    "projection_non_interference": "GlacierEQ/AKOS@09660d20fe1cfe03de169ce327cbe0e86f054e63/governance/projection_non_interference.v1.json",
-    "capability_planes": "machine/capability-planes.json",
-    "rule": "the target contract preserves future architecture; current evidence constrains public projection without replacing the target"
+  "schema": "glaciereq.repo-target-contract.v4",
+  "repository": "GlacierEQ/spacex-pad-weather-gate",
+  "identity": "environmental-constraint decision-engineering laboratory",
+  "non_affiliation": "independent GlacierEQ portfolio system; no SpaceX affiliation, proprietary access, range authority, or launch-safety authority",
+  "apex": {
+    "contract": "GlacierEQ/AKOS/governance/apex_projection_evolution.v2.json@main",
+    "capability_graph": "machine/capability-planes.json",
+    "selection_mode": "CURRENT_BEST_REVISABLE",
+    "rule": "current implementation is selected per capability, remains challengeable, and may be replaced or composed when stronger verified engineering appears"
   },
   "implementation_checkpoint": {
     "state": "FUNCTIONAL_LOCAL_ENVIRONMENTAL_RULE_ENGINE",
@@ -19,27 +18,27 @@
   "evidence_checkpoint": {
     "verified_capability": "deterministic-local-environmental-constraint-evaluation",
     "evidence_token": "LOCAL_ENVIRONMENTAL_RULE_GATE_NOT_LAUNCH_SAFETY_AUTHORITY",
-    "canonical_proof_head": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
+    "verified_checkpoint_head": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
     "claim_ceiling_applies_to": "projection"
   },
   "target_architecture": {
-    "status": "PRESERVED_UNVERIFIED_TARGET_ARCHITECTURE",
+    "status": "ACTIVE_FRONTIER",
     "source": "machine/capability-planes.json#target",
     "objectives": [
       "expand the deterministic evaluator into a larger composable environmental-rule engine",
       "develop generic electrical-field and triggered-lightning-style constraint research without representing official range rules",
       "evaluate probabilistic environmental forecasting and ensemble-model fusion against reproducible public or synthetic datasets",
       "build generic time-window optimization for favorable operating conditions",
-      "expose a governed programmatic environmental-status query service",
-      "publish bounded environmental events into a governed orchestration or agent mesh"
+      "expose a programmatic environmental-status query service",
+      "publish bounded environmental events into an orchestration or agent mesh"
     ],
-    "promotion_rule": "each target remains target state until implementation and evidence exist; missing proof may narrow projection but may not erase the target"
+    "advance_rule": "each objective remains visible until implementation and evidence support it, a stronger objective replaces it, or explicit capability-loss accounting justifies retirement"
   },
   "nonclaims": [
     "no official Launch Commit Criteria or range-safety rule implementation",
     "no real pad sensor or weather-network acquisition",
     "no validated ensemble forecast or operating-window optimization",
-    "no live MCP, provider, APEX, AKOS, Mastermind, or agent-mesh runtime integration",
+    "no live provider, APEX, AKOS, Mastermind, or agent-mesh runtime integration",
     "no production launch authority, deployment, certification, or safety suitability"
   ]
 }
