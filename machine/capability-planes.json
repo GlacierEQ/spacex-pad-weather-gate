@@ -1,19 +1,20 @@
 {
-  "schema": "glaciereq.repository-capability-planes.v1",
+  "schema": "glaciereq.repository-capability-evolution.v2",
   "repository": "GlacierEQ/spacex-pad-weather-gate",
-  "governance_authority": {
-    "repository": "GlacierEQ/AKOS",
-    "canonical_commit": "09660d20fe1cfe03de169ce327cbe0e86f054e63",
-    "contract": "governance/projection_non_interference.v1.json"
+  "apex": {
+    "contract": "GlacierEQ/AKOS/governance/apex_projection_evolution.v2.json@main",
+    "selection_mode": "CURRENT_BEST_REVISABLE",
+    "operator_objective_precedence": true,
+    "capability_donor_preservation": true
   },
   "provenance": {
     "pre_truth_hardening_head": "e61a8c730ff79250151bd3d233ba819f71d944a4",
     "truth_hardening_head": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
-    "current_parent_head": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
+    "verified_parent_head": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
     "historical_intent_source": "README.md@e61a8c730ff79250151bd3d233ba819f71d944a4",
-    "rule": "historical intent is provenance or target state only; unsupported operational detail is not promoted to current implementation or evidence"
+    "rule": "historical intent remains provenance or target state; unsupported operational detail is not promoted to current implementation or evidence"
   },
-  "canonical": {
+  "intent": {
     "identity": "environmental-constraint decision-engineering laboratory for deterministic rules, synthetic sensor aggregation, forecasting research, and operating-window analysis",
     "original_intent": [
       "multi-rule environmental decision evaluation",
@@ -21,7 +22,7 @@
       "probabilistic forecasting and ensemble-model research",
       "operating-window optimization",
       "programmatic environmental-status queries",
-      "event publication into a governed orchestration plane"
+      "event publication into an orchestration plane"
     ],
     "non_affiliation": "independent GlacierEQ portfolio system; no SpaceX affiliation, endorsement, proprietary access, range authority, or launch-safety authority"
   },
@@ -40,87 +41,91 @@
       "electric-field and triggered-lightning style research as generic environmental constraints",
       "programmatic orchestration surfaces beyond current local execution"
     ],
-    "source_paths": [
-      "src/weather_gate.py",
-      "src/electric_field_monitor.go"
-    ]
+    "source_paths": ["src/weather_gate.py", "src/electric_field_monitor.go"]
   },
   "evidence": {
     "evidence_token": "LOCAL_ENVIRONMENTAL_RULE_GATE_NOT_LAUNCH_SAFETY_AUTHORITY",
     "verified_capability": "deterministic-local-environmental-constraint-evaluation",
-    "canonical_proof_head": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
+    "verified_checkpoint_head": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
     "proof_receipts": [
+      {"kind": "github_actions", "name": "CI", "id": 31536566364, "head_sha": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26", "conclusion": "success"},
+      {"kind": "github_actions", "name": "Public Environmental Rule Truth Gate", "id": 31536566296, "head_sha": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26", "conclusion": "success"}
+    ],
+    "rule": "evidence defines currently defensible claims while implementation, intent, targets, and donors remain independently visible"
+  },
+  "selection": {
+    "mode": "CURRENT_BEST_REVISABLE",
+    "challengeable": true,
+    "capabilities": [
       {
-        "kind": "github_actions",
-        "name": "CI",
-        "id": 31536566364,
-        "head_sha": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
-        "conclusion": "success"
+        "capability": "deterministic-local-environmental-constraint-evaluation",
+        "implementation_refs": ["src/weather_gate.py"],
+        "evidence_refs": ["LOCAL_ENVIRONMENTAL_RULE_GATE_NOT_LAUNCH_SAFETY_AUTHORITY", "github-actions:31536566364", "github-actions:31536566296"],
+        "reason": "strongest verified current route for bounded deterministic environmental-rule evaluation",
+        "known_limits": ["synthetic observations", "illustrative rules", "no operational launch decision role"]
       },
       {
-        "kind": "github_actions",
-        "name": "Public Environmental Rule Truth Gate",
-        "id": 31536566296,
-        "head_sha": "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26",
-        "conclusion": "success"
+        "capability": "electric-field-aggregation",
+        "implementation_refs": ["src/electric_field_monitor.go"],
+        "evidence_refs": ["github-actions:31536566364"],
+        "reason": "implemented Go mechanism with local verification and clear composition value"
+      },
+      {
+        "capability": "bounded-margin-scoring",
+        "implementation_refs": ["src/weather_gate.py"],
+        "evidence_refs": ["github-actions:31536566364"],
+        "reason": "current deterministic scoring mechanism for the verified local rule engine"
       }
     ],
-    "rule": "evidence defines currently defensible claims; it does not replace canonical identity or future target architecture"
+    "fitness_dimensions": [
+      "correctness", "capability_depth", "evidence_strength", "interoperability", "performance", "reliability", "maintainability", "human_legibility", "recency_relevance", "innovation_leverage", "composition_value", "recovery_cost"
+    ],
+    "reevaluate_on": [
+      "a broader rule engine gains stronger tests",
+      "forecasting challengers gain reproducible benchmark evidence",
+      "an operating-window optimizer becomes executable",
+      "current evidence becomes stale or contradictory",
+      "new sensor or service compositions materially improve the objective"
+    ]
   },
+  "challengers": [
+    {"capability": "broader-environmental-rule-composition", "state": "PARTIAL_CHALLENGER", "source_refs": ["src/weather_gate.py"], "promotion_requires": ["expanded rule corpus", "adversarial fixtures", "behavioral tests"]},
+    {"capability": "probabilistic-environmental-forecasting", "state": "TARGET_CHALLENGER", "promotion_requires": ["reproducible public or synthetic dataset", "baseline comparison", "calibration analysis"]},
+    {"capability": "operating-window-optimization", "state": "TARGET_CHALLENGER", "promotion_requires": ["implemented optimizer", "objective function", "benchmark evidence"]}
+  ],
+  "capability_donors": [
+    {"source": "src/electric_field_monitor.go", "unique_value": ["in-memory electric-field aggregation", "cross-language implementation boundary"], "preserve": true},
+    {"source": "src/weather_gate.py", "unique_value": ["deterministic rule evaluation", "bounded margin scoring", "synthetic observation validation"], "preserve": true}
+  ],
   "projection": {
     "public_claim_ceiling": "deterministic local environmental-rule evaluation for synthetic weather observations and in-memory electric-field measurements",
     "public_readme": "README.md",
     "projection_may_omit_unverified_target_state": true,
-    "projection_may_overwrite_canonical_or_target": false,
+    "projection_may_overwrite_intent_or_target": false,
     "nonclaims": [
       "no official Launch Commit Criteria or range-safety rules",
       "no real pad sensors, field mills, lightning networks, radar, weather stations, or telemetry",
       "no real-time external sensor acquisition or safety-critical availability",
       "no validated ensemble weather forecast or operating-window optimizer",
-      "no live MCP, provider, APEX, AKOS, Mastermind, or agent-mesh runtime integration",
+      "no live provider, APEX, AKOS, Mastermind, or agent-mesh runtime integration",
       "no production launch GO/NO-GO authority, certification, deployment, or operational safety suitability"
     ]
   },
   "target": {
-    "status": "PRESERVED_UNVERIFIED_TARGET_ARCHITECTURE",
+    "status": "ACTIVE_FRONTIER",
     "items": [
-      {
-        "capability": "larger multi-rule environmental decision engine",
-        "origin": "historical README",
-        "state": "PARTIALLY_IMPLEMENTED_TARGET",
-        "note": "current five-rule evaluator is an implemented base; broader rule composition remains a target"
-      },
-      {
-        "capability": "triggered-lightning-style environmental constraint architecture",
-        "origin": "historical README",
-        "state": "PARTIALLY_IMPLEMENTED_TARGET",
-        "note": "preserved only as generic electrical/environmental constraint research, not official range-safety logic"
-      },
-      {
-        "capability": "probabilistic environmental forecasting with ensemble-model integration",
-        "origin": "historical README",
-        "state": "UNVERIFIED_TARGET",
-        "note": "future research target; no current forecast-probability claim"
-      },
-      {
-        "capability": "time-window optimization for favorable operating conditions",
-        "origin": "historical README",
-        "state": "UNVERIFIED_TARGET",
-        "note": "generic operating-window optimization target; no current launch-window capability claim"
-      },
-      {
-        "capability": "programmatic environmental-status query service",
-        "origin": "historical README",
-        "state": "UNVERIFIED_TARGET",
-        "note": "preserves the former MCP query ambition as a generic governed service target"
-      },
-      {
-        "capability": "environmental-event publication into a governed orchestration mesh",
-        "origin": "historical README",
-        "state": "UNVERIFIED_TARGET",
-        "note": "preserves former sidecar/mesh intent without claiming current live integration"
-      }
+      {"capability": "larger multi-rule environmental decision engine", "origin": "historical README", "state": "PARTIALLY_IMPLEMENTED_TARGET", "note": "current five-rule evaluator is an implemented base; broader rule composition remains a target"},
+      {"capability": "triggered-lightning-style environmental constraint architecture", "origin": "historical README", "state": "PARTIALLY_IMPLEMENTED_TARGET", "note": "generic electrical/environmental constraint research, not official range-safety logic"},
+      {"capability": "probabilistic environmental forecasting with ensemble-model integration", "origin": "historical README", "state": "UNVERIFIED_TARGET", "note": "future research target; no current forecast-probability claim"},
+      {"capability": "time-window optimization for favorable operating conditions", "origin": "historical README", "state": "UNVERIFIED_TARGET", "note": "generic operating-window optimization target"},
+      {"capability": "programmatic environmental-status query service", "origin": "historical README", "state": "UNVERIFIED_TARGET", "note": "programmatic service target; no current live integration"},
+      {"capability": "environmental-event publication into an orchestration mesh", "origin": "historical README", "state": "UNVERIFIED_TARGET", "note": "integration target without claiming current connectivity"}
     ],
-    "rule": "target items may advance only through implementation and new evidence; failure to prove them today cannot delete them"
+    "rule": "targets remain visible until realized, replaced by a stronger objective, or explicitly retired with capability-loss accounting"
+  },
+  "lineage": {
+    "verified_checkpoints": ["7f8ca0a9d4e346b7350b30e2a9263a10b3baae26"],
+    "migration": {"from": "retired freeze-oriented projection model", "to": "APEX capability evolution graph", "status": "complete"},
+    "recovery_rule": "preserve unique mechanisms, proof receipts, target commitments, and rollback evidence before replacement or retirement"
   }
 }
