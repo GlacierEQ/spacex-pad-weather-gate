@@ -35,39 +35,38 @@ def main() -> None:
 
     evidence = target["evidence_checkpoint"]
     assert evidence["evidence_token"] == TOKEN
-    assert evidence["verified_capability"] == (
-        "deterministic-local-environmental-constraint-evaluation"
-    )
-    assert evidence["canonical_proof_head"] == (
-        "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26"
-    )
+    assert evidence["verified_capability"] == "deterministic-local-environmental-constraint-evaluation"
+    assert evidence["verified_checkpoint_head"] == "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26"
     assert target["implementation_checkpoint"]["deployed"] is False
-    assert target["target_architecture"]["status"] == (
-        "PRESERVED_UNVERIFIED_TARGET_ARCHITECTURE"
-    )
+    assert target["target_architecture"]["status"] == "ACTIVE_FRONTIER"
+    assert target["apex"]["selection_mode"] == "CURRENT_BEST_REVISABLE"
     assert len(target["target_architecture"]["objectives"]) >= 6
 
-    assert planes["projection"]["projection_may_overwrite_canonical_or_target"] is False
-    assert planes["target"]["status"] == "PRESERVED_UNVERIFIED_TARGET_ARCHITECTURE"
+    assert planes["schema"] == "glaciereq.repository-capability-evolution.v2"
+    assert planes["apex"]["selection_mode"] == "CURRENT_BEST_REVISABLE"
+    assert planes["apex"]["capability_donor_preservation"] is True
+    assert planes["selection"]["challengeable"] is True
+    assert len(planes["selection"]["capabilities"]) >= 3
+    assert len(planes["capability_donors"]) >= 2
+    assert planes["projection"]["projection_may_overwrite_intent_or_target"] is False
+    assert planes["target"]["status"] == "ACTIVE_FRONTIER"
     assert len(planes["target"]["items"]) >= 6
-    target_states = {item["state"] for item in planes["target"]["items"]}
-    assert "UNVERIFIED_TARGET" in target_states
-    assert "PARTIALLY_IMPLEMENTED_TARGET" in target_states
-
-    assert excellence["product_state"] == "FUNCTIONAL_LOCAL_ENVIRONMENTAL_RULE_ENGINE"
-    assert excellence["evidence_state"] == "EXACT_HEAD_VERIFIED"
-    assert excellence["projection_state"] == TOKEN
-    assert excellence["target_state"] == "PRESERVED_UNVERIFIED_TARGET_ARCHITECTURE"
-    assert excellence["evidence_checkpoint"]["head_sha"] == (
-        "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26"
-    )
-    assert "HYPER_VALIDATED" not in json.dumps(excellence, sort_keys=True)
 
     target_names = {item["capability"] for item in planes["target"]["items"]}
     assert "probabilistic environmental forecasting with ensemble-model integration" in target_names
     assert "time-window optimization for favorable operating conditions" in target_names
     assert "programmatic environmental-status query service" in target_names
-    assert "environmental-event publication into a governed orchestration mesh" in target_names
+
+    assert excellence["schema"] == "glaciereq.repo-excellence-state.v3"
+    assert excellence["product_state"] == "FUNCTIONAL_LOCAL_ENVIRONMENTAL_RULE_ENGINE"
+    assert excellence["evidence_state"] == "EXACT_HEAD_VERIFIED"
+    assert excellence["projection_state"] == TOKEN
+    assert excellence["target_state"] == "ACTIVE_FRONTIER"
+    assert excellence["selection_state"] == "CURRENT_BEST_REVISABLE"
+    assert excellence["selection_challengeable"] is True
+    assert excellence["capability_donor_preservation"] is True
+    assert excellence["evidence_checkpoint"]["head_sha"] == "7f8ca0a9d4e346b7350b30e2a9263a10b3baae26"
+    assert "HYPER_VALIDATED" not in json.dumps(excellence, sort_keys=True)
 
     print(TOKEN)
 
