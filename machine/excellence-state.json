@@ -32,6 +32,10 @@
     "PROJECTION_TRUTH_CLOSED": {"status": "PASS", "evidence": "Public Environmental Rule Truth Gate 31536566296"},
     "EVOLUTION_CURSOR_DEFINED": {"status": "PASS", "evidence": "advance forecasting, rule composition, optimization, service, and event frontiers while preserving proof and donors"}
   },
+  "promotion_authority": {
+    "status": "RETIRED_KEYLESS",
+    "reason": "Repository progression is not gated by a source-default or externally supplied promotion secret."
+  },
   "nonclaims": [
     "no SpaceX affiliation or proprietary launch-weather access",
     "no official Launch Commit Criteria or range-safety rule implementation",
