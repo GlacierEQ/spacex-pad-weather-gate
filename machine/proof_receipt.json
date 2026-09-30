@@ -4,12 +4,12 @@
   "source_sha": "a4da69fec8bde5fa1a39bdb6dfcc8220c573404c8fa8064acb740a9b8c0207e0",
   "proof_id": "elite-spacex-pad-weather-gate-1786335149",
   "environment": {
-    "python": "/Users/kcbflux/job-app/excellence/.venv-elite/bin/python",
-    "PYTHONPATH": "/Users/kcbflux/job-app/repos/spacex-pad-weather-gate:/Users/kcbflux/job-app/repos/spacex-pad-weather-gate/src",
+    "python": "${HOME}/job-app/excellence/.venv-elite/bin/python",
+    "PYTHONPATH": "${HOME}/job-app/repos/spacex-pad-weather-gate:${HOME}/job-app/repos/spacex-pad-weather-gate/src",
     "entry": "unittest"
   },
   "tests": [
-    "/Users/kcbflux/job-app/excellence/.venv-elite/bin/python -m unittest discover -s tests -v (x2)"
+    "${HOME}/job-app/excellence/.venv-elite/bin/python -m unittest discover -s tests -v (x2)"
   ],
   "adversarial_tests": [
     "tests/test_adversarial.py"
